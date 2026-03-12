@@ -27,6 +27,6 @@
         "8080": { "label": "Dev Server" },
         "3306": { "label": "MariaDB (MySQL)" }
     },
-    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y git vim tree htop net-tools dnsutils build-essential bc && chmod +x ./.devcontainer/setup-env.sh",
+    "postCreateCommand": "/bin/bash ./.devcontainer/install-tools.sh",
     "postAttachCommand": "git pull && /bin/bash ./.devcontainer/setup-env.sh && . ./bin/repo.sh"
 }
