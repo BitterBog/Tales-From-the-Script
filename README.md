@@ -42,7 +42,7 @@
 ## ⚖️ Licensing & Attribution
 
 * **License:** Apache License 2.0
-* **Script Template Inspiration:** William Newman
+* **REPO Script Template:** William Newman
 * **Narrative Inspiration:** *Tales from the Crypt*
 * **Pop Culture References:** *Futurama* (Hypnotoad), *D&D*, and *Rogue*.
 * **ASCII Art:** Sourced from [asciiart.eu](https://www.asciiart.eu/).
