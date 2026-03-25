@@ -2,6 +2,7 @@
 
 # --- Tales From the Script: Bitter Bog Edition ---
 
+# --- The Script Keeper ---
 script_keeper() {
     echo -ne "\e[1;30m[\e[0;31m!\e[1;30m] \e[1;37mSCRIPT KEEPER: \e[0;37m"
     msg="$1"
@@ -13,7 +14,7 @@ script_keeper() {
     sleep 1.0
 }
 
-# --- ART ASSETS ---
+# --- ASCII Art ---
 
 show_title() {
     echo -e "\e[1;32m"
@@ -74,12 +75,12 @@ show_script_keeper() {
     cat << 'EOF'
               ___          
              /   \\         
-        /\ | . . \\       
-      ////\\|     ||       
+        /\  | . . \\       
+     //// \\|     ||       
     ////   \\ ___//\       
-   ///      \\     \      
-  ///       |\\     |     
- //         | \\  \   \    
+    ///     \\      \      
+   ///      |\\      |     
+  //        | \\  \   \    
  /          |  \\  \   \   
             |   \\ /   /   
             |    \/   /    
@@ -122,8 +123,8 @@ show_bat() {
    / .''._'--(o.o)--'_.''. \
   /.' _/ |`'=/ " \='`| \_ `.\
  /` .' `\;-,'\___/',-;/` '. '\
-/.-'      `\(-V-)/`      `-.\
-`             " "            `
+/.-'       `\(-V-)/`       `-.\
+`             " "              `
 EOF
     echo -e "\e[0m"
 }
@@ -226,7 +227,7 @@ show_title
 clear
 show_script_keeper
 script_keeper "Welcome to the Bitter Bog, meatbag."
-script_keeper "I've been waiting for a fresh character to write into this script."
+script_keeper "I've been waiting for fresh meat to write into this script."
 read -p "Identify yourself: " char_name
 
 while true; do
