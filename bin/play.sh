@@ -3,7 +3,6 @@
 # --- Tales From the Script: Bitter Bog Edition ---
 
 script_keeper() {
-    # Prefix added, typing speed slowed to 0.05
     echo -ne "\e[1;30m[\e[0;31m!\e[1;30m] \e[1;37mSCRIPT KEEPER: \e[0;37m"
     msg="$1"
     for (( i=0; i<${#msg}; i++ )); do
@@ -17,7 +16,6 @@ script_keeper() {
 # --- ART ASSETS ---
 
 show_title() {
-    # Swampy Green Color
     echo -e "\e[1;32m"
     cat << 'EOF'
 ┌─────────────────────────────────────────────────────┐
@@ -94,13 +92,81 @@ EOF
     echo -e "\e[0m"
 }
 
-# --- ENEMY ART ---
-show_slime() { echo -e "\e[1;32m      .-----------.    \n     (  o     o    )   \n    (      ^        )  \n     '-------------'   \e[0m"; }
-show_spider() { echo -e "\e[1;30m      / _ \ \n    \_\(_)/_/ \n     _//"\\_  \n      /   \ \e[0m"; }
-show_bat() { echo -e "\e[1;37m     =/\                 /\= \n    / \'._   (\_/)   _.'/ \ \n   / .''._'--(o.o)--'_.''. \ \n  /.' _/ |'=/ \" \='| \_ '.\ \n /' .' \;-,'\___/',-;/ ' ' \ \n/.-'      '(-V-)/'      '-.\ \n'             \" \"            ' \e[0m"; }
-show_skeleton() { echo -e "\e[1;37m      .-. \n     (o.o) \n      |=| \n     __|__ \n   //.=|=.\\ \n  // .=|=. \\ \n  \\ .=|=. // \n   \\(_=_)// \n    (:| |:) \n     || || \n     () () \e[0m"; }
+show_slime() {
+    echo -e "\e[1;32m"
+    cat << 'EOF'
+      .-----------.    
+     (  o     o    )   
+    (      ^        )  
+     '-------------'   
+EOF
+    echo -e "\e[0m"
+}
+
+show_spider() {
+    echo -e "\e[1;30m"
+    cat << 'EOF'
+      / _ \
+    \_\(_)/_/
+     _//"\\_ 
+      /   \
+EOF
+    echo -e "\e[0m"
+}
+
+show_bat() {
+    echo -e "\e[1;37m"
+    cat << 'EOF'
+     =/\                 /\=
+    / \'._   (\_/)   _.'/ \
+   / .''._'--(o.o)--'_.''. \
+  /.' _/ |`'=/ " \='`| \_ `.\
+ /` .' `\;-,'\___/',-;/` '. '\
+/.-'      `\(-V-)/`      `-.\
+`             " "            `
+EOF
+    echo -e "\e[0m"
+}
+
+show_skeleton() {
+    echo -e "\e[1;37m"
+    cat << 'EOF'
+      .-.
+     (o.o)
+      |=|
+     __|__
+   //.=|=.\\
+  // .=|=. \\
+  \\ .=|=. //
+   \\(_=_)//
+    (:| |:)
+     || ||
+     () ()
+EOF
+    echo -e "\e[0m"
+}
+
 show_hypnotoad() {
-    echo -e "\e[1;32m         o  o   o  o\n         |\/ \^/ \/|\n         |,-------.|\n       ,-.(\e[1;33m|\e[1;31m)\e[1;32m   (\e[1;33m|\e[1;31m)\e[1;32m,-.\n       \_*._ ' '_.* _/\n        /`-.`--' .-'\n   ,--./    `---'    \,--.\n   \   |(  )     (  )|   /\n    \  | ||       || |  /\n     \ | /|\     /|\ | /\n      /  \-._     _,-/  \n     //| \\  `---'  // |\\ \e[0m"
+    echo -e "\e[1;32m"
+    cat << 'EOF'
+         o  o   o  o
+         |\/ \^/ \/|
+         |,-------.|
+EOF
+    echo -e "       ,-.(\e[1;33m|\e[1;31m)\e[1;32m   (\e[1;33m|\e[1;31m)\e[1;32m,-."
+    cat << 'EOF'
+       \_*._ ' '_.* _/
+        /`-.`--' .-'\
+   ,--./    `---'    \,--.
+   \   |(  )     (  )|   /
+    \  | ||       || |  /
+     \ | /|\     /|\ | /
+      /  \-._     _,-/  \
+     //| \\  `---'  // |\\
+    /,-.,-.\       /,-.,-.\
+   o   o   o      o   o    o
+EOF
+    echo -e "\e[0m"
 }
 
 # --- COMBAT ENGINE ---
@@ -141,11 +207,11 @@ battle_loop() {
 pick_loot() {
     echo -e "\n\e[1;33m[ TREASURE FOUND ]\e[0m"
     echo "Choose your reward:"
-    echo "1) Bitter Bog Berries (+40 HP)"
+    echo "1) Bitter Bog Berries (+45 HP)"
     echo "2) Sharpening Oil (+10 ATK)"
     read -p "> " loot_choice
     if [ "$loot_choice" == "1" ]; then
-        hp=$(( hp + 40 ))
+        hp=$(( hp + 45 ))
         script_keeper "The berries heal your wounds."
     else
         atk=$(( atk + 10 ))
@@ -177,35 +243,32 @@ while true; do
     esac
 done
 
-# --- ACT 1 ---
+# --- ACTS ---
 clear
 script_keeper "The mud begins to boil... A mass of slime rises!"
 battle_loop "Slime" 40 8 "show_slime"
 [ $hp -le 0 ] && { script_keeper "The script ends early for you. GAME OVER."; exit; }
 pick_loot
 
-# --- ACT 2 ---
 clear
 script_keeper "Webs cling to your face. A spider drops!"
 battle_loop "Giant Spider" 55 12 "show_spider"
 [ $hp -le 0 ] && { script_keeper "Cocooned. GAME OVER."; exit; }
 pick_loot
 
-# --- ACT 3 ---
 clear
 script_keeper "Wings beat overhead. The Screech-King dives!"
 battle_loop "Screech-King" 70 15 "show_bat"
 [ $hp -le 0 ] && { script_keeper "A long drop. GAME OVER."; exit; }
 pick_loot
 
-# --- ACT 4 ---
 clear
 script_keeper "Bones rattle beneath the mud. A Skeleton rises!"
 battle_loop "Skeleton" 85 20 "show_skeleton"
 [ $hp -le 0 ] && { script_keeper "Joined the heap. GAME OVER."; exit; }
 pick_loot
 
-# --- FINAL ACT: THE BOSS ---
+# --- FINAL BOSS ---
 clear
 script_keeper "The frequency hums... ALL GLORY TO THE..."
 show_hypnotoad
