@@ -3,7 +3,6 @@
 # --- Tales From the Script: Bitter Bog Edition ---
 
 script_keeper() {
-    # Spooky red prefix for the Script Keeper's dialogue
     echo -ne "\e[1;30m[\e[0;31m!\e[1;30m]\e[0m \e[0;37m"
     msg="$1"
     for (( i=0; i<${#msg}; i++ )); do
@@ -16,8 +15,62 @@ script_keeper() {
 
 # --- ART ASSETS ---
 
+show_title() {
+    echo -e "\e[1;36m"
+    cat << 'EOF'
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│                                                     │
+│     ▄▄▄█████▓ ▄▄▄       ██▓    ▓█████   ██████      │
+│     ▓  ██▒ ▓▒▒████▄    ▓██▒    ▓█   ▀ ▒██    ▒      │
+│     ▒ ▓██░ ▒░▒██  ▀█▄  ▒██░    ▒███   ░ ▓██▄        │
+│     ░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░    ▒▓█  ▄   ▒   ██▒     │
+│       ▒██▒ ░  ▓█   ▓██▒░██████▒░▒████▒▒██████▒▒     │
+│       ▒ ░░    ▒▒   ▓▒█░░ ▒░▓  ░░░ ▒░ ░▒ ▒▓▒ ▒ ░     │
+│         ░      ▒   ▒▒ ░░ ░ ▒  ░ ░ ░  ░░ ░▒  ░ ░     │
+│       ░        ░   ▒     ░ ░      ░   ░  ░  ░       │
+│                    ░  ░    ░  ░   ░  ░      ░       │
+│                                                     │
+│          █████▒██▀███   ▒█████   ███▄ ▄███▓         │
+│        ▓██   ▒▓██ ▒ ██▒▒██▒  ██▒▓██▒▀█▀ ██▒         │
+│        ▒████ ░▓██ ░▄█ ▒▒██░  ██▒▓██    ▓██░         │
+│        ░▓█▒  ░▒██▀▀█▄  ▒██   ██░▒██    ▒██          │
+│        ░▒█░   ░██▓ ▒██▒░ ████▓▒░▒██▒   ░██▒         │
+│         ▒ ░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░   ░  ░         │
+│         ░       ░▒ ░ ▒░  ░ ▒ ▒░ ░  ░      ░         │
+│         ░ ░     ░░   ░ ░ ░ ░ ▒  ░      ░            │
+│                  ░         ░ ░         ░            │
+│                                                     │
+│              ▄▄▄█████▓ ██░ ██ ▓█████                │
+│              ▓  ██▒ ▓▒▓██░ ██▒▓█   ▀                │
+│              ▒ ▓██░ ▒░▒██▀▀██░▒███                  │
+│              ░ ▓██▓ ░ ░▓█ ░██ ▒▓█  ▄                │
+│                ▒██▒ ░ ░▓█▒░██▓░▒████▒               │
+│                ▒ ░░    ▒ ░░▒░▒░░ ▒░ ░               │
+│                  ░     ▒ ░▒░ ░ ░ ░  ░               │
+│                ░       ░  ░░ ░   ░                  │
+│                        ░  ░  ░   ░  ░               │
+│                                                     │
+│    ██████  ▄████▄   ██▀███   ██▓ ██▓███  ▄▄▄█████▓  │
+│  ▒██    ▒ ▒██▀ ▀█  ▓██ ▒ ██▒▓██▒▓██░  ██▒▓  ██▒ ▓▒  │
+│  ░ ▓██▄   ▒▓█    ▄ ▓██ ░▄█ ▒▒██▒▓██░ ██▓▒▒ ▓██░ ▒░  │
+│    ▒   ██▒▒▓▓▄ ▄██▒▒██▀▀█▄  ░██░▒██▄█▓▒ ▒░ ▓██▓ ░   │
+│  ▒██████▒▒▒ ▓███▀ ░░██▓ ▒██▒░██░▒██▒ ░  ░  ▒██▒ ░   │
+│  ▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░░ ▒▓ ░▒▓░░▓  ▒▓▒░ ░  ░  ▒ ░░     │
+│  ░ ░▒  ░ ░  ░  ▒     ░▒ ░ ▒░ ▒ ░░▒ ░         ░      │
+│  ░  ░  ░  ░          ░░   ░  ▒ ░░░         ░        │
+│        ░  ░ ░         ░      ░                      │
+│           ░                                         │
+│                                                     │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+EOF
+    echo -e "\e[1;30m              [ PRESS ENTER TO START ]\e[0m"
+    read
+}
+
 show_script_keeper() {
-    echo -e "\e[1;30m" # Set to Dark Gray
+    echo -e "\e[1;30m"
     cat << 'EOF'
               ___          
              /   \\         
@@ -40,7 +93,7 @@ EOF
 }
 
 show_bat() {
-    echo -e "\e[1;37m" # White/Light Gray
+    echo -e "\e[1;37m"
     cat << 'EOF'
      =/\                 /\=
     / \'._   (\_/)   _.'/ \
@@ -56,10 +109,10 @@ EOF
 show_spider() {
     echo -e "\e[1;30m"
     cat << 'EOF'
-  / _ \
-\_\(_)/_/
- _//"\\_ 
-  /   \
+      / _ \
+    \_\(_)/_/
+     _//"\\_ 
+      /   \
 EOF
     echo -e "\e[0m"
 }
@@ -85,14 +138,17 @@ EOF
     echo -e "\e[0m"
 }
 
+show_slime() {
+    echo -e "\e[1;32m      .-----------.    \n     (  o     o    )   \n    (      ^        )  \n     '-------------'   \e[0m"
+}
+
 show_hypnotoad() {
-    echo -e "\e[1;32m" # Toad Green
+    echo -e "\e[1;32m"
     cat << 'EOF'
          o  o   o  o
          |\/ \^/ \/|
          |,-------.|
 EOF
-    # Glowing Eye Injection
     echo -e "       ,-.(\e[1;33m|\e[1;31m)\e[1;32m   (\e[1;33m|\e[1;31m)\e[1;32m,-."
     cat << 'EOF'
        \_*._ ' '_.* _/
@@ -109,152 +165,138 @@ EOF
     echo -e "\e[0m"
 }
 
-show_warrior() { echo -e "\e[1;37m      ___ \n     |[_]| \n     / | \ \n    (_/ \_) \e[0m"; }
-show_mage() { echo -e "\e[1;34m      / \ \n     | * | \n      \ / \n       | \e[0m"; }
-show_rogue() { echo -e "\e[1;32m      ^ \n     / \ \n     |X| \n     |_| \e[0m"; }
+# --- COMBAT ENGINE ---
 
-# --- THE ADVENTURE BEGINS ---
+battle_loop() {
+    local e_name=$1
+    local e_hp=$2
+    local e_dmg=$3
+    local e_art_func=$4
+
+    while [ $e_hp -gt 0 ] && [ $hp -gt 0 ]; do
+        echo "----------------------------------------------------"
+        $e_art_func
+        echo -e "\e[1;37m$char_name ($class)\e[0m HP: $hp | \e[1;31m$e_name\e[0m HP: $e_hp"
+        echo "1) Strike  2) Defend"
+        read -p "> " action
+
+        if [ "$action" == "2" ]; then
+            echo "You brace for impact!"
+            incoming=$(( (e_dmg / 2) + (RANDOM % 3) ))
+            hp=$(( hp - incoming ))
+            echo "The $e_name hits for $incoming damage."
+        else
+            roll=$(( RANDOM % 10 ))
+            damage=$(( atk + (RANDOM % 10) ))
+            
+            if [ $roll -eq 9 ]; then
+                damage=$(( damage * 2 ))
+                echo -e "\e[1;33mCRITICAL HIT! You strike for $damage damage!\e[0m"
+            else
+                echo "You strike the $e_name for $damage damage!"
+            fi
+            
+            e_hp=$(( e_hp - damage ))
+            if [ $e_hp -gt 0 ]; then
+                incoming=$(( e_dmg + (RANDOM % 5) ))
+                hp=$(( hp - incoming ))
+                echo "The $e_name hits for $incoming damage!"
+            fi
+        fi
+    done
+}
+
+# --- START GAME ---
+
+clear
+show_title
+clear
+show_script_keeper
+script_keeper "Welcome to the Bitter Bog... I hope you've saved your progress."
+read -p "Enter your character's name: " char_name
+
+while true; do
+    echo -e "\nChoose your vessel, $char_name:"
+    echo "1) Warrior (HP: 120 | ATK: 15)"
+    echo "2) Mage    (HP: 70  | ATK: 35)"
+    echo "3) Rogue   (HP: 90  | ATK: 25)"
+    read -p "Selection (1-3): " choice
+
+    case $choice in
+        1) hp=120; atk=15; class="Warrior"; break ;;
+        2) hp=70; atk=35; class="Mage"; break ;;
+        3) hp=90; atk=25; class="Rogue"; break ;;
+        *) echo -e "\e[1;31mThe Bog demands a real choice!\e[0m" ;;
+    esac
+done
 
 clear
 show_script_keeper
-echo ""
-script_keeper "Greetings, Users and Losers! Muahahah!"
-script_keeper "I see you've logged in for a little... terminal illness!"
-script_keeper "Choose your vessel, or become a permanent line of code."
+script_keeper "A $class? Brave, but perhaps foolish. Let's find out."
 
-echo -e "\e[1;30m1) Warrior (HP: 100 | ATK: 15)\n2) Mage (HP: 60 | ATK: 30)\n3) Rogue (HP: 75 | ATK: 22)\e[0m"
-read -p "Selection: " choice
+# --- PROGRESSION ---
 
-case $choice in
-    1) hp=100; atk=15; class="Warrior"; clear; show_warrior ;;
-    2) hp=60; atk=30; class="Mage"; clear; show_mage ;;
-    3) hp=75; atk=22; class="Rogue"; clear; show_rogue ;;
-    *) hp=50; atk=10; class="Husk"; script_keeper "The Bog claims the indecisive." ;;
-esac
-
-script_keeper "A $class enters the muck. Good luck, meatbag."
-
-# --- ENCOUNTER 1: THE SLIME ---
 clear
-script_keeper "The ground squelches... A Slime rises!"
-echo -e "\e[1;32m      .-----------.    "
-echo "     (  o     o    )   "
-echo "    (      ^        )  "
-echo "     '-------------'   \e[0m"
+script_keeper "A Slime squelches forward!"
+battle_loop "Slime" 40 8 "show_slime"
+[ $hp -le 0 ] && { script_keeper "Game Over. The Slime claimed another soul."; exit; }
+atk=$((atk+5)); script_keeper "Looted: Sharp Stone (+5 ATK)."
 
-enemy_hp=30
-while [ $enemy_hp -gt 0 ] && [ $hp -gt 0 ]; do
-    echo "----------------------------------------------------"
-    echo "[$class] HP: $hp | [Slime] HP: $enemy_hp"
-    read -p "1) Strike: " action
-    damage=$(( atk + (RANDOM % 6) ))
-    enemy_hp=$(( enemy_hp - damage ))
-    echo "You strike for $damage damage!"
-    if [ $enemy_hp -gt 0 ]; then
-        hp=$(( hp - 8 ))
-        echo "The Slime lashes out for 8 damage!"
-    fi
-done
-[ $hp -le 0 ] && { script_keeper "You sink into the muck. GAME OVER."; exit; }
-
-script_keeper "Loot: 1) Iron Shard (+15 HP) 2) Sharpening Stone (+5 ATK)"
-read -p "> " L; [ "$L" == "1" ] && hp=$((hp+15)) || atk=$((atk+5))
-
-# --- ENCOUNTER 2: THE SPIDERS ---
 clear
-script_keeper "The canopy rustles... The Twin Spiders descend!"
-# Displaying side-by-side
-echo -e "\e[1;30m   / _ \         / _ \   "
-echo -e " \_\(_)/_/     \_\(_)/_/ "
-echo -e "  _//\"\\_       _//\"\\_  "
-echo -e "   /   \         /   \   \e[0m"
+script_keeper "A Giant Spider drops from the canopy!"
+battle_loop "Giant Spider" 55 12 "show_spider"
+[ $hp -le 0 ] && { script_keeper "Game Over. You are wrapped in silk."; exit; }
 
-s1_hp=25; s2_hp=25
-while [[ ($s1_hp -gt 0 || $s2_hp -gt 0) && $hp -gt 0 ]]; do
-    echo "----------------------------------------------------"
-    echo "HP: $hp | Spider 1: $s1_hp | Spider 2: $s2_hp"
-    read -p "Target (1/2): " target
-    damage=$(( atk + (RANDOM % 5) ))
-    if [[ "$target" == "1" && $s1_hp -gt 0 ]]; then
-        s1_hp=$(( s1_hp - damage )); echo "Spider 1 screeches!"
-    elif [[ "$target" == "2" && $s2_hp -gt 0 ]]; then
-        s2_hp=$(( s2_hp - damage )); echo "Spider 2 is wounded!"
-    else
-        echo "You missed the target!"
-    fi
-    hp=$((hp-12)); echo "Venomous bite! -12 HP"
-done
-[ $hp -le 0 ] && { script_keeper "Envenomed. GAME OVER."; exit; }
-
-# --- ENCOUNTER 3: THE SCREECH-KING (BAT) ---
 clear
-script_keeper "A massive shadow blocks the moon..."
-show_bat
-script_keeper "The Giant Bat dives from the trees!"
-bat_hp=50
-while [ $bat_hp -gt 0 ] && [ $hp -gt 0 ]; do
-    echo "----------------------------------------------------"
-    echo "[$class] HP: $hp | [Giant Bat] HP: $bat_hp"
-    read -p "1) Attack: " action
-    if [ $((RANDOM % 4)) -eq 0 ]; then
-        echo "The bat dived! You missed!"
-    else
-        damage=$(( atk + 5 ))
-        bat_hp=$(( bat_hp - damage ))
-        echo "Hit! $damage damage to the wings!"
-    fi
-    hp=$(( hp - 10 ))
-    echo "The bat claws you for 10 damage!"
-done
-[ $hp -le 0 ] && exit
+script_keeper "The Screech-King dives from the shadows!"
+battle_loop "Screech-King" 65 15 "show_bat"
+[ $hp -le 0 ] && { script_keeper "Game Over. Carried off to the nests."; exit; }
 
-# --- ENCOUNTER 4: THE BONE LEGION ---
 clear
-script_keeper "The mud gives way to bone... A Skeleton rises!"
-show_skeleton
-skel_hp=65
-while [ $skel_hp -gt 0 ] && [ $hp -gt 0 ]; do
-    echo "----------------------------------------------------"
-    echo "HP: $hp | Skeleton: $skel_hp"
-    read -p "1) Strike: " action
-    damage=$(( atk + (RANDOM % 5) ))
-    skel_hp=$(( skel_hp - damage ))
-    echo "Bone clatters for $damage damage!"
-    [ $skel_hp -gt 0 ] && hp=$(( hp - 12 ))
-done
-[ $hp -le 0 ] && exit
+script_keeper "A Skeleton reconstructs itself before you!"
+battle_loop "Skeleton" 80 18 "show_skeleton"
+[ $hp -le 0 ] && { script_keeper "Game Over. Your bones join the pile."; exit; }
 
-# --- FINAL BOSS: HYPNOTOAD ---
+# --- FINAL BOSS ---
 clear
-script_keeper "The frequency changes... ALL GLORY TO THE..."
+script_keeper "ALL GLORY TO THE..."
 show_hypnotoad
-script_keeper "The True Hypnotoad demands your submission."
+script_keeper "Finish it, $char_name! Fight the frequency!"
 
 boss_hp=200
 while [ $boss_hp -gt 0 ] && [ $hp -gt 0 ]; do
     echo "----------------------------------------------------"
-    echo -e "[$class] HP: $hp | \e[1;32m[TOAD]\e[0m HP: $boss_hp"
-    if [ $(( RANDOM % 5 )) -eq 0 ]; then
-        echo -e "\e[1;33mThe eyes swirl... Mesmerized! Turn lost!\e[0m"
-        sleep 1
+    echo -e "\e[1;37m$char_name\e[0m HP: $hp | \e[1;32mHYPNOTOAD\e[0m HP: $boss_hp"
+    echo "1) Strike  2) Defend"
+    read -p "> " action
+
+    if [ "$action" == "2" ]; then
+        hp=$(( hp - 8 ))
+        echo "Resisting the gaze... 8 damage taken."
     else
-        read -p "1) Strike: " action
-        damage=$(( atk + (RANDOM % 12) ))
-        boss_hp=$(( boss_hp - damage ))
-        echo "You strike the Toad for $damage damage!"
+        if [ $((RANDOM % 5)) -eq 0 ]; then
+            echo -e "\e[1;33mMESMERIZED! You missed your turn!\e[0m"
+        else
+            roll=$(( RANDOM % 10 ))
+            damage=$(( atk + (RANDOM % 15) ))
+            if [ $roll -eq 9 ]; then
+                damage=$(( damage * 2 ))
+                echo -e "\e[1;33mCRITICAL HIT! $damage damage!\e[0m"
+            else
+                echo "You hit for $damage!"
+            fi
+            boss_hp=$(( boss_hp - damage ))
+        fi
+        [ $boss_hp -gt 0 ] && hp=$(( hp - 20 )) && echo "The Toad exerts its will! -20 HP"
     fi
-    hp=$(( hp - 18 ))
-    echo "Psychic damage! -18 HP"
 done
 
 if [ $hp -gt 0 ]; then
     clear
     show_script_keeper
-    script_keeper "The frequency stops. You have survived the Bitter Bog."
-    script_keeper "For now... log out while you still can."
+    script_keeper "The frequency stops. You have survived the Bitter Bog, $char_name."
 else
     clear
     show_hypnotoad
-    script_keeper "All glory to the Hypnotoad."
-    script_keeper "Your mind belongs to the swamp. GAME OVER."
+    script_keeper "All glory to the Hypnotoad. GAME OVER."
 fi
