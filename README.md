@@ -1,81 +1,52 @@
-# script-template
-A repo on which to build scripting projects
+# 🕹️ Tales From the Script: Bitter Bog Edition
 
-Linux Mastery: Scripting & Automation Template
+![Bash](https://img.shields.io/badge/Language-Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Stable-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
 
-North Seattle College | IT135 Intro to Linux
-Overview
+## 📋 Case Study: The Problem & Solution
 
-This repository is a professional-grade development environment for Linux Bash scripting. It is designed to transition students from basic command execution to building modular, documented, and industrial-strength tools.
+**The Problem:** Most introductory Bash scripts are purely functional and fail to demonstrate the "human-centric" side of systems administration—specifically, how to manage user state, handle complex nested logic, and provide engaging feedback in a CLI environment.
 
-[Script Template Repo Overview](https://tinyurl.com/script-template-repo-overview)
+**The Solution:** This project serves as a technical demonstration of **Advanced Bash Scripting**. It solves the "engagement gap" by utilizing:
 
-This environment is specifically tuned for the LAMP, Docker, and Docker Compose lab sequences, providing a robust library (/lib) and a standardized execution path (/bin).
-Getting Started with GitHub Codespaces
+* **State Management:** Tracking player HP, Attack, and Loot variables dynamically across multiple functions.
+* **Dynamic UI:** Implementing a custom "typewriter" effect for narrative delivery to control user pacing and immersion.
+* **Input Validation:** Utilizing robust `while` and `case` loops to ensure the script handles unexpected user input without crashing.
+* **Visual Design:** Leveraging ANSI escape codes and Heredocs (`cat << 'EOF'`) to render complex ASCII art and color UI without shell syntax errors.
 
-    Click the "Code" button in this repository.
+---
 
-    Select the "Codespaces" tab and click "Create codespace on main."
+## 🚀 How to Run (GitHub Codespaces)
 
-    Once the environment loads, wait for the terminal to appear.
+1.  **Open** this repository in a GitHub Codespace.
+2.  **Make the script executable** by running the following command in the terminal:
+    ```bash
+    chmod +x bin/play.sh
+    ```
+3.  **Launch the game**:
+    ```bash
+    ./bin/play.sh
+    ```
 
-    The system will automatically run install-tools.sh and setup-env.sh to configure your workspace.
+---
 
-    To finalize the setup in your current terminal, run:
-    . ./bin/repo.sh
+## 🛠️ Requirements & Compatibility
 
-Core Tools
+* **OS:** Linux / macOS (Unix-based)
+* **Shell:** Bash 4.0+
+* **Terminal:** Must support ANSI colors (`xterm-256color` recommended).
 
-This repo includes specialized tools to verify your environment and demonstrate advanced scripting techniques:
-1. The Environment Doctor (check-env.sh)
+---
 
-If your commands aren't working or your paths feel "broken," run the diagnostic tool:
-Command: check-env.sh
-Purpose: Verifies REPO_ROOT, PATH settings, global symlinks, and software dependencies like 'bc'.
-2. The Starfleet Navigator (example.sh)
+## ⚖️ Licensing & Attribution
 
-A demonstration of "Pro-level" scripting.
-Command: ./bin/example.sh
-Features:
+* **License:** Apache License 2.0
+* **Script Template Inspiration:** William Newman
+* **Narrative Inspiration:** *Tales from the Crypt*
+* **Pop Culture References:** *Futurama* (Hypnotoad), *D&D*, and *Rogue*.
+* **ASCII Art:** Sourced from [asciiart.eu](https://www.asciiart.eu/).
+* **Development Assistance:** Assistance from Google Gemini.
 
-    Floating point math using 'bc'.
-
-    Precise arrival date calculation using Unix Epoch seconds (avoiding the "same day/month" calendar trap).
-
-    Professional flag parsing (-h for help, -d for debug mode).
-
-    Input validation via the shared /lib/tools.sh library.
-
-Features & Standards
-
-    Modular Library: /lib/tools.sh provides validated input functions (getInteger, getNumber) and debugging suites.
-
-    Debug Architecture: Integrated -d flags and DEBUG=1 environmental overrides for real-time code tracing.
-
-    Standardized Documentation: All scripts follow the Google Shell Style Guide for headers and function commentary.
-
-    Portability: The environment tethering in ~/.bashrc uses guard clauses, allowing this folder to be moved to local WSL or Linux machines without breaking the system shell.
-
-License & Ethics
-License
-
-This project is licensed under the Apache License 2.0. This allows for free use and modification in educational and professional contexts while maintaining authorship and providing no warranty.
-AI Collaboration Statement
-
-This repository template was developed through a collaborative partnership between Professor Bill Newman and Gemini (Google AI).
-
-    Role of Human: Architectural design, pedagogical strategy, logic verification, and educational context.
-
-    Role of AI: Syntax optimization, documentation standardization, and regex refinement.
-
-    Purpose: To demonstrate the industry standard of "AI-Augmented Engineering," where AI acts as a high-velocity pair-programmer to ensure code quality and adherence to global standards.
-
-Authorship
-
-    Lead Instructor: Bill Newman
-
-    Contributors: Gemini (AI Assistant)
-
-    Version: 1.2.1
-
-    Updated: March 12, 2026
+---
+**Developed by Amber Renfroe** *Application Development Student | North Seattle College*
